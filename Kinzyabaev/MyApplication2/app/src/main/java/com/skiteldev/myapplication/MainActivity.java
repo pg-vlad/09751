@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Connection_to_DB.connect();
         
         username = findViewById(R.id.login);
         password = findViewById(R.id.pass);
@@ -29,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
         else {
             Toast.makeText(getApplicationContext(),"wrong input", Toast.LENGTH_SHORT).show();
         }
+
+        if (Connection_to_DB.)
     }
 
 

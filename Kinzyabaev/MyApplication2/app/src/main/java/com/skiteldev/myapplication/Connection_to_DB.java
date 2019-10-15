@@ -36,9 +36,9 @@ public abstract class Connection_to_DB {
     }
 
     public abstract void performStatement();
-    public abstract void showResultSet();
+    public abstract void findRecord();
 
-    public void connect() {
+    public static void connect() {
         try {
             connection = DriverManager.getConnection(URL, USER, PASSWORD);
         } catch (SQLException e) {
@@ -47,7 +47,7 @@ public abstract class Connection_to_DB {
         }
     }
 
-    public void close_DB() {
+    public static void close_DB() {
         try {
             connection.close();
             connection = null;
