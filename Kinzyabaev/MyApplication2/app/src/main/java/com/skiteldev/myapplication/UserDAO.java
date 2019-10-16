@@ -1,30 +1,23 @@
 package com.skiteldev.myapplication;
 
-import java.sql.Connection;
 import java.sql.SQLException;
 
-public class UserDAO extends Connection_to_DB{
-    private Connection connection = getConnection();
-    @Override
-    public void performStatement() {
-        String SQL = "SELECT * FROM developers";
-        try {
-            setPreparedStatement(connection.prepareStatement(SQL));
-            getPreparedStatement().executeQuery();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
+import static com.skiteldev.myapplication.Connection_to_DB.getConnection;
+import static com.skiteldev.myapplication.Connection_to_DB.getPreparedStatement;
+import static com.skiteldev.myapplication.Connection_to_DB.getSet;
+import static com.skiteldev.myapplication.Connection_to_DB.setPreparedStatement;
+import static com.skiteldev.myapplication.Connection_to_DB.setResultSet;
 
-    @Override
-    public void findRecord() {
-    }
+class UserDAO {
 
-    public boolean findUser(String user, String pass) {
-        boolean isExistUser = false;
+    static boolean findUser(String user, String pass) {
+        String SQL = "SELECT * FROM users where username = ? and password = ?";
         try {
-            connection
-        return true;
+            setPreparedStatement(getConnection().prepareStatement(SQL));
+            getPreparedStatement().setString(1, user);
+            getPreparedStatement().setString(2, pass);
+            setResultSet(getPreparedStatement().executeQuery());
+            return getSet().next();
         } catch (SQLException e) {
             return false;
         }

@@ -6,48 +6,54 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public abstract class Connection_to_DB {
-    private static final String URL = "your url";
-    private static final String USER = "your username";
+class Connection_to_DB {
+    static {
+        try {
+            Class.forName("org.postgresql.Driver");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+    }
+    private static final String URL = "url";
+    private static final String USER = "user";
     private static final String PASSWORD = "your pass";
 
     private static Connection connection;
     private static PreparedStatement preparedStatement;
     private static ResultSet set;
 
-    public static Connection getConnection() {
+    static Connection getConnection() {
         return connection;
     }
 
-    public static void setPreparedStatement(PreparedStatement preparedStatement) {
+    static void setPreparedStatement(PreparedStatement preparedStatement) {
             Connection_to_DB.preparedStatement = preparedStatement;
     }
 
-    public static void setResultSet(ResultSet set) {
+    static void setResultSet(ResultSet set) {
         Connection_to_DB.set = set;
     }
 
-    public static PreparedStatement getPreparedStatement() {
+    static PreparedStatement getPreparedStatement() {
         return preparedStatement;
     }
 
-    public static ResultSet getSet() {
+    static ResultSet getSet() {
         return set;
     }
 
-    public abstract void performStatement();
-    public abstract void findRecord();
 
-    public static void connect() {
+    static void connect() {
         try {
             connection = DriverManager.getConnection(URL, USER, PASSWORD);
-        } catch (SQLException e) {
+        } catch (Exception e) {
             connection = null;
             e.printStackTrace();
         }
     }
 
-    public static void close_DB() {
+    static void close_DB() {
         try {
             connection.close();
             connection = null;

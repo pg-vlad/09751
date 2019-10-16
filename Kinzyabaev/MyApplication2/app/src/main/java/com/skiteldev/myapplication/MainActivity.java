@@ -1,11 +1,11 @@
 package com.skiteldev.myapplication;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,14 +24,15 @@ public class MainActivity extends AppCompatActivity {
 
     public void check(View view) {
         String log = username.getText().toString(), pass = password.getText().toString();
-        if (ValidateUtil.validate(log, pass)) {
+        if (ValidateUtil.validate(log, pass) && UserDAO.findUser(log, pass)) {
             Toast.makeText(getApplicationContext(),"congr", Toast.LENGTH_SHORT).show();
-        }
-        else {
-            Toast.makeText(getApplicationContext(),"wrong input", Toast.LENGTH_SHORT).show();
-        }
 
-        if (Connection_to_DB.)
+
+
+        } else {
+            Toast.makeText(getApplicationContext(),"Something went wrong", Toast.LENGTH_SHORT).show();
+
+        }
     }
 
 
