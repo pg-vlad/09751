@@ -35,5 +35,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Connection_to_DB.close_DB();
+    }
 }
