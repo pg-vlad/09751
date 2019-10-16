@@ -1,5 +1,6 @@
 package com.skiteldev.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -25,9 +26,8 @@ public class MainActivity extends AppCompatActivity {
     public void check(View view) {
         String log = username.getText().toString(), pass = password.getText().toString();
         if (ValidateUtil.validate(log, pass) && UserDAO.findUser(log, pass)) {
-            Toast.makeText(getApplicationContext(),"congr", Toast.LENGTH_SHORT).show();
-
-
+            Intent intent = new Intent(getApplicationContext(), Main2Activity.class);
+            startActivity(intent);
 
         } else {
             Toast.makeText(getApplicationContext(),"Something went wrong", Toast.LENGTH_SHORT).show();
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
-        super.onDestroy();
         Connection_to_DB.close_DB();
+        super.onDestroy();
     }
 }
