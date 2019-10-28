@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-class Connection_to_DB {
+class ConnectionToDB {
     static {
         try {
             Class.forName("org.postgresql.Driver");
@@ -28,11 +28,11 @@ class Connection_to_DB {
     }
 
     static void setPreparedStatement(PreparedStatement preparedStatement) {
-            Connection_to_DB.preparedStatement = preparedStatement;
+            ConnectionToDB.preparedStatement = preparedStatement;
     }
 
     static void setResultSet(ResultSet set) {
-        Connection_to_DB.set = set;
+        ConnectionToDB.set = set;
     }
 
     static PreparedStatement getPreparedStatement() {

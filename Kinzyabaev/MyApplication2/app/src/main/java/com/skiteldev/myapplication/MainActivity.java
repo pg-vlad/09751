@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Connection_to_DB.connect();
+        ConnectionToDB.connect();
         
         username = findViewById(R.id.login);
         password = findViewById(R.id.pass);
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
-        Connection_to_DB.close_DB();
+        ConnectionToDB.close_DB();
         super.onDestroy();
     }
 }

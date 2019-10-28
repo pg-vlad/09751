@@ -4,20 +4,18 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import java.sql.Connection;
-
 import static org.junit.Assert.*;
 
 public class UserDAOTest {
 
     @BeforeClass
     public static void initDB() {
-        Connection_to_DB.connect();
+        ConnectionToDB.connect();
     }
 
     @AfterClass
     public static void close() {
-        Connection_to_DB.close_DB();
+        ConnectionToDB.close_DB();
     }
     @Test
     public void findUser() {

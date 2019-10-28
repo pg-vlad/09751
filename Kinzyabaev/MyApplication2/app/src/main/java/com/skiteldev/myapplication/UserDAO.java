@@ -2,11 +2,11 @@ package com.skiteldev.myapplication;
 
 import java.sql.SQLException;
 
-import static com.skiteldev.myapplication.Connection_to_DB.getConnection;
-import static com.skiteldev.myapplication.Connection_to_DB.getPreparedStatement;
-import static com.skiteldev.myapplication.Connection_to_DB.getSet;
-import static com.skiteldev.myapplication.Connection_to_DB.setPreparedStatement;
-import static com.skiteldev.myapplication.Connection_to_DB.setResultSet;
+import static com.skiteldev.myapplication.ConnectionToDB.getConnection;
+import static com.skiteldev.myapplication.ConnectionToDB.getPreparedStatement;
+import static com.skiteldev.myapplication.ConnectionToDB.getSet;
+import static com.skiteldev.myapplication.ConnectionToDB.setPreparedStatement;
+import static com.skiteldev.myapplication.ConnectionToDB.setResultSet;
 
 class UserDAO {
 
