@@ -1,5 +1,7 @@
 package com.skiteldev.myapplication;
 
+import com.skiteldev.myapplication.connection.PostgresConnection;
+import com.skiteldev.myapplication.connection.UserDAO;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -10,12 +12,12 @@ public class UserDAOTest {
 
     @BeforeClass
     public static void initDB() {
-        ConnectionToDB.connect();
+        PostgresConnection.connect();
     }
 
     @AfterClass
     public static void close() {
-        ConnectionToDB.close_DB();
+        PostgresConnection.close_DB();
     }
     @Test
     public void findUser() {

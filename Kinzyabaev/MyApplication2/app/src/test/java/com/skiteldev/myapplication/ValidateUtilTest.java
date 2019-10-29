@@ -1,5 +1,6 @@
 package com.skiteldev.myapplication;
 
+import com.skiteldev.myapplication.helper.ValidateUtil;
 import org.junit.Test;
 
 import static org.junit.Assert.assertFalse;

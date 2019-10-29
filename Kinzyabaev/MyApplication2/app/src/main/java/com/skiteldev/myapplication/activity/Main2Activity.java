@@ -1,8 +1,9 @@
-package com.skiteldev.myapplication;
+package com.skiteldev.myapplication.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import com.skiteldev.myapplication.R;
 
 public class Main2Activity extends AppCompatActivity {
 

@@ -1,10 +1,9 @@
-package com.skiteldev.myapplication;
+package com.skiteldev.myapplication.helper;
 
 public class ValidateUtil {
     public static boolean validate(String log, String pass) {
         if (log.isEmpty() || pass.isEmpty()) return false;
-        if (hasSpecialSymb(log) || hasSpecialSymb(pass)) return false;
-        return true;
+        return !hasSpecialSymb(log) && !hasSpecialSymb(pass);
     }
 
     private static boolean hasSpecialSymb(String text) {
