@@ -1,13 +1,14 @@
 package com.skiteldev.myapplication.connection;
 
 import android.database.Cursor;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
 public class UserDAO {
 
-    SQLiteDatabase sqlLiteConnection;
+    private SQLLiteConnection sqlLiteConnection;
 
-    public UserDAO(SQLiteDatabase sqLiteDatabase) {
+    public UserDAO(SQLLiteConnection sqLiteDatabase) {
         sqlLiteConnection = sqLiteDatabase;
     }
 
@@ -18,7 +19,11 @@ public class UserDAO {
 //            getPreparedStatement().setString(2, pass);
 //            setResultSet(getPreparedStatement().executeQuery());
 //            return getSet().next();
-        Cursor cursor = sqlLiteConnection.rawQuery(SQL, new String[] {user, pass});
-        return cursor.moveToFirst();
+        SQLiteDatabase mDb;
+        mDb = sqlLiteConnection.getReadableDatabase();
+
+        Cursor cursor = mDb.rawQuery(SQL, new String[] {user, pass});
+        return   cursor.moveToFirst();
+
     }
 }
