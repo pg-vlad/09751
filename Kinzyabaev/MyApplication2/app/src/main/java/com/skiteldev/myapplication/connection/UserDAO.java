@@ -1,7 +1,6 @@
 package com.skiteldev.myapplication.connection;
 
 import android.database.Cursor;
-import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
 public class UserDAO {
@@ -23,7 +22,7 @@ public class UserDAO {
         mDb = sqlLiteConnection.getReadableDatabase();
 
         Cursor cursor = mDb.rawQuery(SQL, new String[] {user, pass});
-        return   cursor.moveToFirst();
+        return cursor.moveToFirst();
 
     }
 }

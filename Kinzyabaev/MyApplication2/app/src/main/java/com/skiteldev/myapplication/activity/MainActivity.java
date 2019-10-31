@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         b = new SQLLiteConnection(this);
-        b.createDataBase();
+        b.updateDataBase();
 
 
         username = findViewById(R.id.login);

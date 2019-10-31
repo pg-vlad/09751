@@ -34,7 +34,7 @@ public class SQLLiteConnection extends SQLiteOpenHelper {
         copyDataBase();
 
     }
-    public void updateDataBase() throws IOException {
+    public void updateDataBase(){
         if (mNeedUpdate) {
             File dbFile = new File(DB_PATH + DATABASE_NAME);
             if (dbFile.exists()) {
